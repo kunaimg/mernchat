@@ -63,7 +63,21 @@ io.on("connection", (socket) => {
   socket.on("smessages", (data) => {
     socket.broadcast.emit("smessage", data);
   });
-
+  socket.on("maindata", (maindatas) => {
+    socket.broadcast.emit("maindatas", maindatas);
+  });
+  socket.on("videodata", (videodatas) => {
+    console.log(videodatas);
+    socket.broadcast.emit("videodatas", videodatas);
+  });
+  socket.on("audiodata", (audiodatas) => {
+    console.log(audiodatas);
+    socket.broadcast.emit("audiodatas", audiodatas);
+  });
+  socket.on("docdata", (docdatas) => {
+    console.log(docdatas);
+    socket.broadcast.emit("docdatas", docdatas);
+  });
   socket.on("disconnect", () => {
     socket.broadcast.emit("disusermessagedekho", dataa);
     socket.broadcast.emit("sdisusermessagedekho", dataa);
